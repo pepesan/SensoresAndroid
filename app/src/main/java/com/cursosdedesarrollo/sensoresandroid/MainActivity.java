@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private void prepareMagnetic() {
         if (mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) != null){
+            /*
             // Success! There's a magnetometer.
             Log.d("app","Hay en magnetómetro");
             List<Sensor> gravSensors = mSensorManager.getSensorList(Sensor.TYPE_GRAVITY);
@@ -78,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 Log.d("app","Sensor:"+ sensorBrujula);
 
             }
+            */
+            sensorBrujula =mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         }
         else {
             // Failure! No magnetometer.
@@ -129,13 +132,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // Many sensors return 3 values, one for each axis.
         //Log.d("app","onSensorChanged");
         //Log.d("app","sensor:"+sensorEvent.sensor.getType());
-        if(sensorEvent.sensor.getType()==Sensor.TYPE_GRAVITY){
+        if(sensorEvent.sensor.getType()==Sensor.TYPE_MAGNETIC_FIELD){
             //Log.d("app","sensor:"+sensorEvent.sensor.getType());
             float valor = sensorEvent.values[0];
             //Log.d("app","valor:"+valor);
             BigDecimal result;
             result=round(valor,2);
-            System.out.println(result);
             textView.setText(""+result);
             // Do something with this sensor value.
         }
