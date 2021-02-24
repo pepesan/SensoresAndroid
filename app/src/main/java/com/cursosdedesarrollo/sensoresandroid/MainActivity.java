@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     private void prepareGyroscopy() {
-        sensorGiroscopio = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorGiroscopio = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
     }
 
     private void prepareAccelerometer() {
